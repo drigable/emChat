@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>betclic.ci - FR</title>
+</head>
+<body>
+
+<h1>Let’s start chatting...</h1>
+<br />
+Click the button to start a chat.
+<br />
+<style type='text/css'>
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #005290;
+        font-family: "Arial", sans-serif;
+    }
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+    }
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+    var initESW = function(gslbBaseURL) {
+        embedded_svc.settings.displayHelpButton = true; //Or false
+        embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+        //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+        //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+        //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+        //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+        // Settings for Chat
+        //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+            // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+            // Returns a valid button ID.
+        //};
+        //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+        //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+        //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+        embedded_svc.settings.entryFeature = 'LiveAgent';
+        embedded_svc.settings.autoOpenPostChat = false;
+        embedded_svc.settings.extraPrechatFormDetails = [
+            {
+                "label": "username",
+                "value": "Some username",
+                "displayToAgent": true,
+                "transcriptFields": ['UserName__c']
+            },
+            {
+                "label": "Site Code",
+                "value": "Some site code",
+                "displayToAgent": true,
+                "transcriptFields": ['SiteCode__c']
+            },
+            {
+                "label": "Source UID",
+                "value": "Some source UID",
+                "displayToAgent": true,
+                "transcriptFields": ['Source_UID__c']
+            },
+            {
+                "label": "Application Id",
+                "value": "Some application ID",
+                "displayToAgent": true,
+                "transcriptFields": ['ApplicationId__c']
+            },
+            {
+                "label": "Segment",
+                "value": "Some segment",
+                "displayToAgent": true,
+                "transcriptFields": ['Segment__c']
+            },
+            {
+                "label": "Chat Source",
+                "value": "BetclicFr",
+                "displayToAgent": true,
+                "transcriptFields": ['Chat_Source__c']
+            },
+            {
+                "label": "App Version",
+                "value": "Some app version",
+                "displayToAgent": true,
+                "transcriptFields": ['App_Version__c']
+            },
+            {
+                "label": "Has GoogleMobile Services",
+                "value": "No",
+                "displayToAgent": true,
+                "transcriptFields": ['Has_GoogleMobile_Services__c']
+            },
+            {
+                "label": "Is Logged In",
+                "value": "No",
+                "displayToAgent": true,
+                "transcriptFields": ['Is_Logged_In__c']
+            }
+        ];
+
+        embedded_svc.init(
+            'https://betclicgroup--sbapr2023.sandbox.my.salesforce.com',
+            'https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/',
+            gslbBaseURL,
+            '00D7Z00000051vU',
+            'Embedded_Chat_Agent',
+            {
+                baseLiveAgentContentURL: 'https://c.la3-c1cs-cdg.salesforceliveagent.com/content',
+                deploymentId: '5727Z000000Gstk',
+                buttonId: '5737Z000000GnNf',
+                baseLiveAgentURL: 'https://d.la3-c1cs-cdg.salesforceliveagent.com/chat',
+                eswLiveAgentDevName: 'Embedded_Chat_Agent',
+                isOfflineSupportEnabled: false
+            }
+        );
+    };
+
+    if (!window.embedded_svc) {
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://betclicgroup--sbapr2023.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+        s.onload = function() {
+            initESW(null);
+        };
+        document.body.appendChild(s);
+    } else {
+        initESW('https://service.force.com');
+    }
+</script>
+
+
+</body>
+</html>
