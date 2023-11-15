@@ -119,32 +119,20 @@
                 }
             ];
 
-            // embedded_svc.settings.extraPrechatInfo = [
-            //     {
-            //         "entityFieldMaps": [
-            //             {
-            //                 "doCreate": false,
-            //                 "doFind": false,
-            //                 "fieldName": "LastName",
-            //                 "isExactMatch": false,
-            //                 "label": "username"
-            //             }
-            //         ],
-            //         "entityName": "Contact"
-            //     },
-            //     {
-            //         "entityFieldMaps": [
-            //             {
-            //                 "doCreate": false,
-            //                 "doFind": false,
-            //                 "fieldName": "UserName__c",
-            //                 "isExactMatch": false,
-            //                 "label": "username"
-            //             }
-            //         ],
-            //         "entityName": "LiveChatTranscript"
-            //     }
-            // ];
+            embedded_svc.settings.extraPrechatInfo = [
+                {
+                    "entityFieldMaps": [
+                        {
+                            "doCreate": false,
+                            "doFind": false,
+                            "fieldName": "Username__c",
+                            "isExactMatch": false,
+                            "label": "username"
+                        }
+                    ],
+                    "entityName": "Contact"
+                }
+            ];
             embedded_svc.settings.prepopulatedPrechatFields = {
                 Username__c: username,
                 Org_ID__c: ORG_ID,
