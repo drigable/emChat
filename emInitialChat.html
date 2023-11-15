@@ -52,62 +52,62 @@
             let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
             let isLoggedIn = 'No'; // 'Yes' or 'No'
 
-            // embedded_svc.settings.extraPrechatFormDetails = [
-            //     {
-            //         "label": "username",
-            //         "value": username,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['UserName__c']
-            //     },
-            //     {
-            //         "label": "Site Code",
-            //         "value": siteCode,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['SiteCode__c']
-            //     },
-            //     {
-            //         "label": "Source UID",
-            //         "value": sourceUid,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['Source_UID__c']
-            //     },
-            //     {
-            //         "label": "Application Id",
-            //         "value": applicationId,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['ApplicationId__c']
-            //     },
-            //     {
-            //         "label": "Segment",
-            //         "value": segment,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['Segment__c']
-            //     },
-            //     {
-            //         "label": "Chat Source",
-            //         "value": chatSource,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['Chat_Source__c']
-            //     },
-            //     {
-            //         "label": "App Version",
-            //         "value": appVersion,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['App_Version__c']
-            //     },
-            //     {
-            //         "label": "Has GoogleMobile Services",
-            //         "value": hasGoogleMobileServices,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['Has_GoogleMobile_Services__c']
-            //     },
-            //     {
-            //         "label": "Is Logged In",
-            //         "value": isLoggedIn,
-            //         "displayToAgent": true,
-            //         "transcriptFields": ['Is_Logged_In__c']
-            //     }
-            // ];
+            embedded_svc.settings.extraPrechatFormDetails = [
+                {
+                    "label": "username",
+                    "value": username,
+                    "displayToAgent": true,
+                    "transcriptFields": ['UserName__c']
+                },
+                {
+                    "label": "Site Code",
+                    "value": siteCode,
+                    "displayToAgent": true,
+                    "transcriptFields": ['SiteCode__c']
+                },
+                {
+                    "label": "Source UID",
+                    "value": sourceUid,
+                    "displayToAgent": true,
+                    "transcriptFields": ['Source_UID__c']
+                },
+                {
+                    "label": "Application Id",
+                    "value": applicationId,
+                    "displayToAgent": true,
+                    "transcriptFields": ['ApplicationId__c']
+                },
+                {
+                    "label": "Segment",
+                    "value": segment,
+                    "displayToAgent": true,
+                    "transcriptFields": ['Segment__c']
+                },
+                {
+                    "label": "Chat Source",
+                    "value": chatSource,
+                    "displayToAgent": true,
+                    "transcriptFields": ['Chat_Source__c']
+                },
+                {
+                    "label": "App Version",
+                    "value": appVersion,
+                    "displayToAgent": true,
+                    "transcriptFields": ['App_Version__c']
+                },
+                {
+                    "label": "Has GoogleMobile Services",
+                    "value": hasGoogleMobileServices,
+                    "displayToAgent": true,
+                    "transcriptFields": ['Has_GoogleMobile_Services__c']
+                },
+                {
+                    "label": "Is Logged In",
+                    "value": isLoggedIn,
+                    "displayToAgent": true,
+                    "transcriptFields": ['Is_Logged_In__c']
+                }
+            ];
 
             // embedded_svc.settings.extraPrechatInfo = [
             //     {
@@ -135,10 +135,12 @@
             //         "entityName": "LiveChatTranscript"
             //     }
             // ];
-            // embedded_svc.settings.prepopulatedPrechatFields = {
-            //     LastName: username,
-            //     FirstName: username
-            // };
+            embedded_svc.settings.prepopulatedPrechatFields = {
+                Username__c: username,
+                Org_ID__c: ORG_ID,
+                Deployment_ID__c: DEPLOYMENT_ID,
+                Button_ID__c: BUTTON_ID
+            };
 
             embedded_svc.init(
                 'https://betclicgroup--sbapr2023.sandbox.my.salesforce.com',
