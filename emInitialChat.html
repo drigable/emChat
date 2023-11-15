@@ -60,6 +60,11 @@
                     "transcriptFields": ['UserName__c']
                 },
                 {
+                    "label": "Contact Reason",
+                    "displayToAgent": true,
+                    "transcriptFields": ['ContactReason__c']
+                },
+                {
                     "label": "Site Code",
                     "value": siteCode,
                     "displayToAgent": true,
@@ -169,5 +174,26 @@
         } else {
             initESW('https://service.force.com');
         }
+
+        document.addEventListener(
+            "setCustomField",
+            function(event) {
+                console.log(
+                        'Inside the Custom Field Listener'
+                );
+                console.log(
+                        'Passed username value is',
+                        event.detail.username
+                );
+                console.log(
+                        'Passed reason value is',
+                        event.detail.reason
+                );
+                embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.username;
+                embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.reason;
+                //event.detail.callback();
+            },
+            false
+        );
     </script>
 </apex:page>
