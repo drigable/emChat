@@ -1,4 +1,9 @@
-<apex:page >
+<!DOCTYPE html>
+<html>
+<head>
+<title>betclic.fr - FR</title>
+</head>
+<body>
     <h1>Let’s start chatting...</h1>
     <br />
     Click the button to start a chat.
@@ -178,6 +183,7 @@
         document.addEventListener(
             "setCustomField",
             function(event) {
+                debugger;
                 console.log(
                         'Inside the Custom Field Listener'
                 );
@@ -196,4 +202,5 @@
             false
         );
     </script>
-</apex:page>
+</body>
+</html>
