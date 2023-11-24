@@ -210,12 +210,22 @@
                         if (!queuePositionElem) {
                             return;
                         }
-                        let estimatedWaitTimePElelemt = document.createElement("p");
-                        let estimatedWaitTimeText = document.createTextNode(event.detail.text);
-                        estimatedWaitTimePElelemt
-                            .appendChild(estimatedWaitTimeText);
-                        queuePositionElem
-                            .appendChild(estimatedWaitTimePElelemt);
+                        let estimatedWaitTimePElelem;
+                        //const ELEM_NAME = 'ewtpelem';
+                        estimatedWaitTimePElelem = document.querySelector(
+                            "div.queuePositionMessage p[data-name='ewtpelem']"
+                        );
+                        if (estimatedWaitTimePElelem) {
+                            estimatedWaitTimePElelem.innerHTML = event.detail.text;
+                        } else {
+                            estimatedWaitTimePElelem = document.createElement("p");
+                            estimatedWaitTimePElelem
+                                .setAttribute('data-name', 'ewtpelem');
+                            estimatedWaitTimePElelem
+                                .appendChild(document.createTextNode(event.detail.text));
+                            queuePositionElem
+                                .appendChild(estimatedWaitTimePElelem);
+                        }
                     },
                     1000
                 );
