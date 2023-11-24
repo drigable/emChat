@@ -193,22 +193,32 @@
         document.addEventListener(
             "setEstimatedWaitingTime",
             function(event) {
-                debugger;
                 console.log(
                         'Inside setEstimatedWaitingTime Listener'
                 );
-                console.log(
-                        'Passed text value is',
-                        event.detail.text
-                );
+                debugger;
+                setTimeout(
+                    function () {
+                        debugger;
 
-                let queuePositionElem = document.querySelector("div.queuePositionMessage");
-                let estimatedWaitTimePElelemt = document.createElement("p");
-                let estimatedWaitTimeText = document.createTextNode(event.detail.text);
-                estimatedWaitTimePElelemt
-                    .appendChild(estimatedWaitTimeText);
-                queuePositionElem
-                    .appendChild(estimatedWaitTimePElelemt);
+                        console.log(
+                                'Passed text value is',
+                                event.detail.text
+                        );
+
+                        let queuePositionElem = document.querySelector("div.queuePositionMessage");
+                        if (!queuePositionElem) {
+                            return;
+                        }
+                        let estimatedWaitTimePElelemt = document.createElement("p");
+                        let estimatedWaitTimeText = document.createTextNode(event.detail.text);
+                        estimatedWaitTimePElelemt
+                            .appendChild(estimatedWaitTimeText);
+                        queuePositionElem
+                            .appendChild(estimatedWaitTimePElelemt);
+                    },
+                    1000
+                );
             },
             false
         );
