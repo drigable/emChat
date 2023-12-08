@@ -5,12 +5,50 @@
 </head>
 <body>
     <style type='text/css'>
+        /* @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            src:url("https://www.betclic.pl/fonts/metropolis-black.woff2") format("woff2"),
+                url("https://www.betclic.pl/fonts/metropolis-black.woff") format("woff")
+        } */
+        @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            font-style: normal;
+            font-weight: 400;
+            src:url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Regular.woff2") format("woff2"),
+                url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Regular.woff") format("woff")
+        }
+        @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            font-style: italic;
+            font-weight: 400;
+            src:url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-RegularItalic.woff2") format("woff2"),
+                url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-RegularItalic.woff") format("woff")
+        }
+        @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            font-style: normal;
+            font-weight: 700;
+            src:url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Bold.woff2") format("woff2"),
+                url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Bold.woff") format("woff")
+        }
+        @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            font-style: italic;
+            font-weight: 700;
+            src:url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-BoldItalic.woff2") format("woff2"),
+                url("https://betclicgroup--sbapr2023.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-BoldItalic.woff") format("woff")
+        }
         .embeddedServiceHelpButton .helpButton .uiButton {
-            background-color: #005290;
+            background-color: #d2161e;
             font-family: "Arial", sans-serif;
         }
         .embeddedServiceHelpButton .helpButton .uiButton:focus {
-            outline: 1px solid #005290;
+            outline: 1px solid #d2161e;
         }
     </style>
 
@@ -38,7 +76,7 @@
 
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
-            embedded_svc.settings.autoOpenPostChat = false;
+            embedded_svc.settings.autoOpenPostChat = true;
 
             const ORG_ID = '00D7Z00000051vU';
             const DEPLOYMENT_ID = '5727Z000000Gstk';
