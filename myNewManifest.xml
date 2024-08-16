@@ -6,7 +6,6 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>Offer__c.Sub_Status__c</members>
         <name>CustomField</name>
     </types>
     <version>61.0</version>
