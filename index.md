@@ -119,6 +119,7 @@
 				}
 			};
 		</script>
+  <script type='text/javascript' src='https://betclicgroup--sept2024vm.sandbox.my.site.com/ESWMessagingforWeb1736881213811/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
         <input type="button" value="Start Chat" onclick="startChat();"/><br/><br/>
 	</body>
 </html>
