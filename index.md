@@ -104,6 +104,7 @@
                             //Set invisible prechat field
                             embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
                                 "siteCode" : siteCode,
+				"sourceUid": sourceUid,
                                 "applicationId" : applicationId,
                                 "segment" : segment,
                                 "chatSource" : chatSource,
