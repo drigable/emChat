@@ -65,12 +65,12 @@
                         embeddedservice_bootstrap.settings.language = language; // For example, enter 'en' or 'en-US'
 
                         // Hidden Pre-chat form details
-                        let siteCode = 'frfr';
+                        let siteCode = 'gben';
                         let sourceUid = 'Cl1234';
-                        let applicationId = 'BETCLICFR';
+                        let applicationId = 'BETCLICCOM';
                         let segment = 'Some segment';
-                        let chatSource = 'BetclicFr';
-                        let appVersion = 'Some app version';
+                        let chatSource = 'BetclicEn';
+                        let appVersion = 'Some app version EN';
                         let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
                         let isLoggedIn = 'No'; // 'Yes' or 'No'
 
