@@ -66,7 +66,7 @@
 
                         // Hidden Pre-chat form details
                         let siteCode = 'gben';
-                        let sourceUid = 'Cl1234';
+                        let sourceUid = '1235pa';
                         let applicationId = 'BETCLICCOM';
                         let segment = 'Some segment';
                         let chatSource = 'WEB_BETCLIC.COM';
