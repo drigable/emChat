@@ -69,7 +69,7 @@
                         let sourceUid = 'Cl1234';
                         let applicationId = 'BETCLICCOM';
                         let segment = 'Some segment';
-                        let chatSource = 'BetclicEn';
+                        let chatSource = 'WEB_BETCLIC.COM';
                         let appVersion = 'Some app version EN';
                         let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
                         let isLoggedIn = 'No'; // 'Yes' or 'No'
