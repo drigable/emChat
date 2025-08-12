@@ -189,6 +189,28 @@
                 let isAgentAvailable = data.isAgentAvailable ? "online": "offline";
                 console.log(`onAvailability event was fired. Agent availability status is ${isAgentAvailable}. Button ID: ${data.id}`);
             });
+
+            embedded_svc.addEventHandler("onClickSubmitButton", function(data) {
+                console.log("onClickSubmitButton event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+                console.log("onClickSubmitButton event was fired." + data);
+            });
+
+            embedded_svc.addEventHandler("onHelpButtonClick", function(data) {
+                console.log("onHelpButtonClick event was fired." + data);
+            });
+
+            embedded_svc.addEventHandler("afterMaximize", function(data) {
+                console.log("afterMaximize event was fired." + data);
+            });
+
+            embedded_svc.addEventHandler("onChatRequestSuccess", function(data) {
+                console.log("onChatRequestSuccess event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
+                console.log("onChatRequestSuccess event was fired." + data);
+            });
+             
+            embedded_svc.addEventHandler("onQueueUpdate", function(data) {
+                console.log("onQueueUpdate event was fired." + data);
+            });
             
             embedded_svc.init(
                 'https://betclicgroup--sept2024vm.sandbox.my.salesforce.com',
