@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html style="font-size: .625em">
+<head>
+<title>betclic.fr - FR</title>
+</head>
+<body>
+    <style type='text/css'>
+        /* @font-face{
+            font-family: Metropolis;
+            font-display: auto;
+            src:url("https://www.betclic.pl/fonts/metropolis-black.woff2") format("woff2"),
+                url("https://www.betclic.pl/fonts/metropolis-black.woff") format("woff")
+        } */
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 300;
+                src:url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Light.woff2") format("woff2"),
+                    url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Light.woff") format("woff")
+            }
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 400;
+                src:url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Regular.woff2") format("woff2"),
+                    url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Regular.woff") format("woff")
+            }
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 700;
+                src:url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Bold.woff2") format("woff2"),
+                    url("https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Bold.woff") format("woff")
+            }
+            
+        /* There is used Betclic color #d2161e */
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #d2161e;
+            font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #d2161e;
+        }
+    </style>
+
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+
+        // Chat info
+        let orgId = '00DAa000009woNe';
+        let deploymentId = '57258000000L3bP';
+        let buttonId = '573Sm0000000gCD';
+        let language = 'fr';
+
+        // Pre-chat form details
+        let username = '';
+        let siteCode = 'Some site code 2';
+        let sourceUid = '1235pa';
+        let applicationId = 'Some application ID 2';
+        let segment = 'Some segment 2';
+        let chatSource = 'BetclicPl';
+        let appVersion = 'Some app version 2';
+        let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
+        let isLoggedIn = 'No'; // 'Yes' or 'No'
+
+        var initESW = function(gslbBaseURL) {
+            debugger;
+            embedded_svc.settings.displayHelpButton = false; //Or false
+            embedded_svc.settings.language = language; //For example, enter 'en' or 'en-US'
+
+            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+            //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+            // Settings for Chat
+            //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                // Returns a valid button ID.
+            //};
+            //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+            //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+            embedded_svc.settings.autoOpenPostChat = true; //Was set to TRUE to redirect to the post-chat survey immediately after the chat ends
+
+            // Pre-chat form details that will be saved to the Chat Transcript record
+            // The new Embedded_Chat__c field on ChatTranscript object is used to
+            // distinguish chat sessions created in the old chat or in the embedded one
+            embedded_svc.settings.extraPrechatFormDetails = [
+                {
+                    "label": "username",
+                    "value": username,
+                    "displayToAgent": false,
+                    "transcriptFields": ['UserName__c']
+                },
+                {
+                    "label": "Site Code",
+                    "value": siteCode,
+                    "displayToAgent": false,
+                    "transcriptFields": ['SiteCode__c']
+                },
+                {
+                    "label": "Source UID",
+                    "value": sourceUid,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Source_UID__c']
+                },
+                {
+                    "label": "Application Id",
+                    "value": applicationId,
+                    "displayToAgent": false,
+                    "transcriptFields": ['ApplicationId__c']
+                },
+                {
+                    "label": "Segment",
+                    "value": segment,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Segment__c']
+                },
+                {
+                    "label": "Chat Source",
+                    "value": chatSource,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Chat_Source__c']
+                },
+                {
+                    "label": "App Version",
+                    "value": appVersion,
+                    "displayToAgent": false,
+                    "transcriptFields": ['App_Version__c']
+                },
+                {
+                    "label": "Has GoogleMobile Services",
+                    "value": hasGoogleMobileServices,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Has_GoogleMobile_Services__c']
+                },
+                {
+                    "label": "Is Logged In",
+                    "value": isLoggedIn,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Is_Logged_In__c']
+                },
+                {
+                    "label": "isEmbeddedChat",
+                    "value": true,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Embedded_Chat__c']
+                }
+            ];
+
+            // embedded_svc.settings.extraPrechatInfo = [
+            //     {
+            //         "entityFieldMaps": [
+            //             {
+            //                 "doCreate": false,
+            //                 "doFind": false,
+            //                 "fieldName": "Username__c",
+            //                 "isExactMatch": false,
+            //                 "label": "username"
+            //             }
+            //         ],
+            //         "entityName": "Contact"
+            //     }
+            // ];
+            // embedded_svc.settings.prepopulatedPrechatFields = {
+            //     Username__c: username,
+            //     Org_ID__c: orgId,
+            //     Deployment_ID__c: deploymentId,
+            //     Button_ID__c: buttonId
+            // };
+            
+            embedded_svc.addEventHandler("onSettingsCallCompleted", function(data) {
+                debugger;
+                let isAgentAvailable = data.isAgentAvailable ? "online": "offline";
+                console.log(`onSettingsCallCompleted event was fired. Agent availability status is ${isAgentAvailable}`);
+                //embedded_svc.bootstrapEmbeddedService();
+            });
+            
+            embedded_svc.addEventHandler("onAvailability", function(data) {
+                //Fires in a loop every 60 seconds and indicates if the agent is online.
+                let isAgentAvailable = data.isAgentAvailable ? "online": "offline";
+                console.log(`onAvailability event was fired. Agent availability status is ${isAgentAvailable}. Button ID: ${data.id}`);
+            });
+            
+            embedded_svc.init(
+                'https://betclicgroup--sept2024vm.sandbox.my.salesforce.com',
+                'https://betclicgroup--sept2024vm.sandbox.my.salesforce-sites.com/',
+                gslbBaseURL,
+                orgId,
+                'Betclic_Embedded',
+                {
+                    baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/content',
+                    deploymentId: deploymentId,
+                    buttonId: buttonId,
+                    baseLiveAgentURL: 'https://d.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1j000000Cb3zEAC_1804cda1e5e',
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+
+        if (!window.embedded_svc) {
+            debugger;
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://betclicgroup--sept2024vm.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+
+        document.addEventListener(
+            "emPreChatSubmit",
+            function(event) {
+                debugger;
+                console.log(
+                        'Inside the Custom Field Listener'
+                );
+                console.log(
+                        'Passed username value is',
+                        event.detail.username
+                );
+                console.log(
+                        'Passed reason value is',
+                        event.detail.reason
+                );
+
+                // Overwrite username as extraPrechatFormDetail that is populated in pre-chat form
+                embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.username;
+                // Callback invokes startChat API function
+                event.detail.startChatCallback();
+            },
+            false
+        );
+
+        document.addEventListener(
+            "emPreChatInit",
+            function(event) {
+                debugger;
+                console.log('Inside emPreChatInit Listener');
+
+                // Pass the chat info and pre-chat form details to the emPreChat lightning web component on init
+                document
+                    .querySelector('c-em-pre-chat')
+                    .putPreChatInitDetails(
+                        {
+                            orgId: orgId,
+                            deploymentId: deploymentId,
+                            buttonId: buttonId,
+                            username: username,
+                            siteCode: siteCode,
+                            applicationId: applicationId,
+                            chatSource: chatSource,
+                            appVersion: appVersion,
+                            hasGoogleMobileServices: hasGoogleMobileServices,
+                            isLoggedIn: isLoggedIn
+                        }
+                    );
+            },
+            false
+        );
+        // document.addEventListener(
+        //     "setEstimatedWaitingTime",
+        //     function(event) {
+        //         console.log(
+        //                 'Inside setEstimatedWaitingTime Listener'
+        //         );
+        //         debugger;
+        //         setTimeout(
+        //             function () {
+        //                 debugger;
+
+        //                 console.log(
+        //                         'Passed text value is',
+        //                         event.detail.text
+        //                 );
+
+        //                 let queuePositionElem = document.querySelector("div.queuePositionMessage");
+        //                 if (!queuePositionElem) {
+        //                     return;
+        //                 }
+        //                 let estimatedWaitTimePElelem;
+        //                 //const ELEM_NAME = 'ewtpelem';
+        //                 estimatedWaitTimePElelem = document.querySelector(
+        //                     "div.queuePositionMessage p[data-name='ewtpelem']"
+        //                 );
+        //                 if (estimatedWaitTimePElelem) {
+        //                     estimatedWaitTimePElelem.innerHTML = event.detail.text;
+        //                 } else {
+        //                     estimatedWaitTimePElelem = document.createElement("p");
+        //                     estimatedWaitTimePElelem
+        //                         .setAttribute('data-name', 'ewtpelem');
+        //                     estimatedWaitTimePElelem
+        //                         .appendChild(document.createTextNode(event.detail.text));
+        //                     queuePositionElem
+        //                         .appendChild(estimatedWaitTimePElelem);
+        //                 }
+        //             },
+        //             1000
+        //         );
+        //     },
+        //     false
+        // );
+                
+        function startChat() {
+            
+            embedded_svc.bootstrapEmbeddedService();
+            
+        }
+    </script>
+    <input type="button" value="Start Chat" onclick="startChat();"/><br/><br/>
+</body>
+</html>
