@@ -109,13 +109,17 @@ Portuguese (European) = 'pt-PT'
             // Pre-chat form details
             let username = '';
             let siteCode = 'Some site code';
-            let sourceUid = 'Some source UID';
+            let sourceUid = '52482096';
             let applicationId = 'Some application ID';
             let segment = 'Some segment';
-            let chatSource = 'BetclicFr';
+            let chatSource = 'WEB_BETCLIC.PL';
             let appVersion = 'Some app version';
-            let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
+            let hasGoogleMobileServices = 'Yes'; // 'Yes' or 'No'
             let isLoggedIn = 'No'; // 'Yes' or 'No'
+            let brand = 'betclic';
+            let regulatorZone = 'PL';
+            let tag = 'ONLINE_SAFER_GAMING';
+
 
             var initESW = function(gslbBaseURL) {
                 embedded_svc.settings.displayHelpButton = false; //Or false
@@ -202,6 +206,24 @@ Portuguese (European) = 'pt-PT'
                         "label": "isEmbeddedChat",
                         "value": true,
                         "displayToAgent": false
+                    },
+                    {
+                        "label": "Brand",
+                        "value": brand,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Brand__c']
+                    },
+                    {
+                        "label": "Regulator Zone",
+                        "value": regulatorZone,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Regulator_Zone__c']
+                    },
+                    {
+                        "label": "Tag",
+                        "value": tag,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Tag__c']
                     }
                 ];
                 
@@ -278,7 +300,10 @@ Portuguese (European) = 'pt-PT'
                                 chatSource: chatSource,
                                 appVersion: appVersion,
                                 hasGoogleMobileServices: hasGoogleMobileServices,
-                                isLoggedIn: isLoggedIn
+                                isLoggedIn: isLoggedIn,
+                                brand: brand,
+                                regulatorZone: regulatorZone,
+                                tag: tag
                             }
                         );
 
