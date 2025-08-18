@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>betclic.fr - FR</title>
+    </head>
+    <body>
+        <style type='text/css'>
+            /* @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                src:url("https://www.betclic.pl/fonts/metropolis-black.woff2") format("woff2"),
+                    url("https://www.betclic.pl/fonts/metropolis-black.woff") format("woff")
+            } */
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 300;
+                src:url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Light.woff2") format("woff2"),
+                    url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Light.woff") format("woff")
+            }
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 400;
+                src:url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Regular.woff2") format("woff2"),
+                    url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Regular.woff") format("woff")
+            }
+            @font-face{
+                font-family: Metropolis;
+                font-display: auto;
+                font-style: normal;
+                font-weight: 700;
+                src:url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF2/Metropolis-Bold.woff2") format("woff2"),
+                    url("https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/resource/MetropolisFont/WOFF/Metropolis-Bold.woff") format("woff")
+            }
+
+            /* There is used Betclic color #d2161e */
+            .embeddedServiceHelpButton .helpButton .uiButton {
+                background-color: #d2161e;
+                font-family: "Arial", sans-serif;
+            }
+            .embeddedServiceHelpButton .helpButton .uiButton:focus {
+                outline: 1px solid #d2161e;
+            }
+        </style>
+
+        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+        <script type='text/javascript'>
+/*
+em_betclic_bj_FR
+French
+testEnv
+573Sm0000000gC9
+
+em_betclic_cd_FR
+French
+testEnv
+573Sm0000001SVJ
+
+em_betclic_ci_FR
+French
+testEnv
+573Sm0000000gCA
+
+em_betclic_cm_FR
+French
+testEnv
+573Sm0000000gCB
+
+em_betclic_com_EN
+English
+testEnv
+573Sm0000000gCC
+
+em_betclic_fr_FR
+French
+testEnv
+573Sm0000000gCD
+
+em_betclic_pl_PL
+Polish
+testEnv
+573Sm0000000gCE
+
+em_betclic_pt_PT
+Portuguese (European)
+testEnv
+573Sm0000000gCF
+
+em_betclic_sn_FR
+French
+testEnv
+573Sm0000000gCG
+
+French = 'fr'
+English = 'en'
+Polish = 'pl'
+Portuguese (European) = 'pt-PT'
+*/
+
+            // Chat info
+            let orgId = '00DAa000009fqyL';
+            let deploymentId = '57258000000L3bP';
+            let buttonId = '573Sm0000001SVJ';
+            let language = 'pt-PT';
+
+            // Pre-chat form details
+            let username = '';
+            let siteCode = 'Some site code';
+            let sourceUid = 'Some source UID';
+            let applicationId = 'Some application ID';
+            let segment = 'Some segment';
+            let chatSource = 'BetclicFr';
+            let appVersion = 'Some app version';
+            let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
+            let isLoggedIn = 'No'; // 'Yes' or 'No'
+
+            var initESW = function(gslbBaseURL) {
+                embedded_svc.settings.displayHelpButton = false; //Or false
+                embedded_svc.settings.language = language; //For example, enter 'en' or 'en-US'
+
+                //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+                //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+                //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+                //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+                // Settings for Chat
+                //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                    // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                    // Returns a valid button ID.
+                //};
+                //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+                //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+                //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+                embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+                embedded_svc.settings.entryFeature = 'LiveAgent';
+                embedded_svc.settings.autoOpenPostChat = true; //Was set to TRUE to redirect to the post-chat survey immediately after the chat ends
+
+                // Pre-chat form details that will be saved to the Chat Transcript record
+                // The new isEmbeddedChat custom detail is used to distinguish chat
+                // sessions created in the old chat or in the embedded one
+                embedded_svc.settings.extraPrechatFormDetails = [
+                    {
+                        "label": "username",
+                        "value": username,
+                        "displayToAgent": false,
+                        "transcriptFields": ['UserName__c']
+                    },
+                    {
+                        "label": "Site Code",
+                        "value": siteCode,
+                        "displayToAgent": false,
+                        "transcriptFields": ['SiteCode__c']
+                    },
+                    {
+                        "label": "Source UID",
+                        "value": sourceUid,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Source_UID__c']
+                    },
+                    {
+                        "label": "Application Id",
+                        "value": applicationId,
+                        "displayToAgent": false,
+                        "transcriptFields": ['ApplicationId__c']
+                    },
+                    {
+                        "label": "Segment",
+                        "value": segment,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Segment__c']
+                    },
+                    {
+                        "label": "Chat Source",
+                        "value": chatSource,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Chat_Source__c']
+                    },
+                    {
+                        "label": "App Version",
+                        "value": appVersion,
+                        "displayToAgent": false,
+                        "transcriptFields": ['App_Version__c']
+                    },
+                    {
+                        "label": "Has GoogleMobile Services",
+                        "value": hasGoogleMobileServices,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Has_GoogleMobile_Services__c']
+                    },
+                    {
+                        "label": "Is Logged In",
+                        "value": isLoggedIn,
+                        "displayToAgent": false,
+                        "transcriptFields": ['Is_Logged_In__c']
+                    },
+                    {
+                        "label": "isEmbeddedChat",
+                        "value": true,
+                        "displayToAgent": false
+                    }
+                ];
+                
+                embedded_svc.addEventHandler("onSettingsCallCompleted", function(data) {
+                    debugger;
+                    let isAgentAvailable = data.isAgentAvailable ? "online": "offline";
+                    console.log(`onSettingsCallCompleted event was fired. Agent availability status is ${isAgentAvailable}`);
+                    //embedded_svc.bootstrapEmbeddedService();
+                });
+            
+                embedded_svc.addEventHandler("onAvailability", function(data) {
+                    //Fires in a loop every 60 seconds and indicates if the agent is online.
+                    let isAgentAvailable = data.isAgentAvailable ? "online": "offline";
+                    console.log(`onAvailability event was fired. Agent availability status is ${isAgentAvailable}. Button ID: ${data.id}`);
+                });
+
+                embedded_svc.init(
+                    'https://betclicgroup--testenv.sandbox.my.salesforce.com',
+                    'https://betclicgroup--testenv.sandbox.my.salesforce-sites.com/',
+                    gslbBaseURL,
+                    orgId,
+                    'Betclic_Embedded',
+                    {
+                        baseLiveAgentContentURL: 'https://c.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/content',
+                        deploymentId: deploymentId,
+                        buttonId: buttonId,
+                        baseLiveAgentURL: 'https://d.la12s-core1.sfdc-urlt2q.salesforceliveagent.com/chat',
+                        eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I1j000000Cb3zEAC_1804cda1e5e',
+                        isOfflineSupportEnabled: false
+                    }
+                );
+            };
+
+            if (!window.embedded_svc) {
+                var s = document.createElement('script');
+                s.setAttribute('src', 'https://betclicgroup--testenv.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+                s.onload = function() {
+                    initESW(null);
+                };
+                document.body.appendChild(s);
+            } else {
+                initESW('https://service.force.com');
+            }
+
+            document.addEventListener(
+                "emPreChatSubmit",
+                function(event) {
+                    // Overwrite username as extraPrechatFormDetail that is populated in pre-chat form
+                    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.username;
+                    // Callback invokes startChat API function
+                    event.detail.startChatCallback();
+
+                    event.stopPropagation();
+                },
+                false
+            );
+
+            document.addEventListener(
+                "emPreChatInit",
+                function(event) {
+                    // Pass the chat info and pre-chat form details to the emPreChat lightning web component on init
+                    document
+                        .querySelector('c-em-pre-chat')
+                        .putPreChatInitDetails(
+                            {
+                                orgId: orgId,
+                                deploymentId: deploymentId,
+                                buttonId: buttonId,
+                                username: username,
+                                siteCode: siteCode,
+                                sourceUid: sourceUid,
+                                applicationId: applicationId,
+                                segment: segment,
+                                chatSource: chatSource,
+                                appVersion: appVersion,
+                                hasGoogleMobileServices: hasGoogleMobileServices,
+                                isLoggedIn: isLoggedIn
+                            }
+                        );
+
+                    event.stopPropagation();
+                },
+                false
+            );
+            
+            function startChat() {
+                embedded_svc.bootstrapEmbeddedService();
+            }
+            function endChat() {
+                embedded_svc.liveAgentAPI.endChat();
+            }
+            function clearSession() {
+                embedded_svc.liveAgentAPI.clearSession();
+            }
+        </script>
+        <input type="button" value="Start Chat" onclick="startChat();"/><br/><br/>
+        <input type="button" value="End Chat" onclick="endChat();"/><br/><br/>
+        <input type="button" value="Clear Session" onclick="clearSession();"/><br/><br/>
+    </body>
+</html>
