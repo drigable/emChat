@@ -65,6 +65,9 @@
         let appVersion = 'Some app version 2';
         let hasGoogleMobileServices = 'No'; // 'Yes' or 'No'
         let isLoggedIn = 'No'; // 'Yes' or 'No'
+        let brand = 'betclic';
+        let regulatorZone = 'FR';
+        let tag = 'ONLINE_SAFER_GAMING';
 
         var initESW = function(gslbBaseURL) {
             debugger;
@@ -153,6 +156,24 @@
                     "value": true,
                     "displayToAgent": false,
                     "transcriptFields": ['Embedded_Chat__c']
+                },
+                {
+                    "label": "Brand",
+                    "value": brand,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Brand__c']
+                },
+                {
+                    "label": "Regulator Zone",
+                    "value": regulatorZone,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Regulator_Zone__c']
+                },
+                {
+                    "label": "Tag",
+                    "value": tag,
+                    "displayToAgent": false,
+                    "transcriptFields": ['Tag__c']
                 }
             ];
 
@@ -285,7 +306,10 @@
                             chatSource: chatSource,
                             appVersion: appVersion,
                             hasGoogleMobileServices: hasGoogleMobileServices,
-                            isLoggedIn: isLoggedIn
+                            isLoggedIn: isLoggedIn,
+                            brand: brand,
+                            regulatorZone: regulatorZone,
+                            tag: tag
                         }
                     );
             },
